@@ -4,12 +4,8 @@
 
 package mte2.deques;
 
-// import java.util.LinkedList;
-
 import java.util.Iterator;
 import java.util.LinkedList;
-
-// import java.util.Iterator;
 
 public class MyDeque<E> implements Deque<E> {    
     private final LinkedList<E> list;
@@ -44,7 +40,13 @@ public class MyDeque<E> implements Deque<E> {
 
     @Override
     public Iterator<E> iterator() throws UnsupportedOperationException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        {
+            for(E values : list) {
+                while(iterator().hasNext() == false) {
+                    iterator().next() = values;
+                }
+            }
+        }
     }
 
     public static void main(String[] args) { 
