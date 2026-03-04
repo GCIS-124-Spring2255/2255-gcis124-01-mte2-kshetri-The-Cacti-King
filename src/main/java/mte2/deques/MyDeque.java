@@ -5,26 +5,47 @@
 package mte2.deques;
 
 // import java.util.LinkedList;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+
 // import java.util.Iterator;
 
-public class MyDeque {
-// public class MyDeque<E> implements Deque<E> {
-    
-    // private final LinkedList<E> list;
-    // public MyDeque() {    list = new LinkedList<>();    }
+public class MyDeque<E> implements Deque<E> {    
+    private final LinkedList<E> list;
+    public MyDeque() {    list = new LinkedList<>();    }
 
-    // ... for enqueueFront ...
+    @Override
+    public void enqueueFront(E element) {
+        list.add(0, element);
+    }
 
-    // ... for enqueueBack ...
+    @Override
+    public void enqueueBack(E element) {
+        list.add(list.size(), element);
+    }
 
-    // ... for dequeueFront ...
+    @Override
+    public E dequeueFront() {
+        E temp = list.remove(0);
+        return temp;
+    }
 
-    // ... for dequeueBack ... 
+    @Override
+    public E dequeueBack() {
+        E temp = list.remove(list.size());
+        return temp;
+    }
 
-    // ... for size ...
+    @Override
+    public int size() {
+        return list.size();
+    }
 
-    // ... for iterator ...
-
+    @Override
+    public Iterator<E> iterator() throws UnsupportedOperationException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 
     public static void main(String[] args) { 
 
